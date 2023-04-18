@@ -58,34 +58,36 @@ in
     ''; 
   };
 
-  programs = {
-    kitty = {
-      enable = true;
-      font = {
-        name = "Fantasque Sans Mono";
-        size = 38;
-      };
-      /* theme = "Tokyo Night Storm"; */
-      keybindings = {
-        "cmd+l" = "select_tab";
-        "ctrl+q" = "goto_tab 0";
-        "cmd+shift+enter" = "new_window_with_cwd";
-        "ctrl+shift+1" = "goto_tab 1";
-        "ctrl+shift+2" = "goto_tab 2";
-        "ctrl+shift+3" = "goto_tab 3";
-        "ctrl+shift+4" = "goto_tab 4";
-        "ctrl+shift+5" = "goto_tab 5";
-        "ctrl+shift+6" = "goto_tab 6";
-      };
-      extraConfig = ''
-        include Tokyo Night Storm.conf      
-        map f1 set_tab_title
-        '';
-      settings = {
-        background_opacity = "0.8";
-        hide_window_decorations = "yes";
-      };
+  /* TERM */
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "Fantasque Sans Mono";
+      size = 38;
     };
+    /* theme = "Tokyo Night Storm"; */
+    keybindings = {
+      "cmd+l" = "select_tab";
+      "ctrl+q" = "goto_tab 0";
+      "cmd+shift+enter" = "new_window_with_cwd";
+      "ctrl+shift+1" = "goto_tab 1";
+      "ctrl+shift+2" = "goto_tab 2";
+      "ctrl+shift+3" = "goto_tab 3";
+      "ctrl+shift+4" = "goto_tab 4";
+      "ctrl+shift+5" = "goto_tab 5";
+      "ctrl+shift+6" = "goto_tab 6";
+    };
+    extraConfig = ''
+      include Tokyo Night Storm.conf      
+      map f1 set_tab_title
+      '';
+    settings = {
+      background_opacity = "0.8";
+      hide_window_decorations = "yes";
+    };
+  };
+
+  programs = {
     k9s.enable = true;
     direnv.enable = true;
     nix-index.enable = true;
