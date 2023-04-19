@@ -47,10 +47,11 @@ in
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true; 
+    completionInit = "autoload -Uz compinit && compinit";
     initExtra = ''
         source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        source ~/.config/zsh/.zshrc
     '';
-    initExtraFirst = "source ~/.config/zsh/.zshrc";
     envExtra = ''
       alias ailo-tools="nix run git+ssh://git@github.com/ailohq/ailo-tools.git"
       change-profile() { eval $(ailo-tools shell_change_profile) ; }
