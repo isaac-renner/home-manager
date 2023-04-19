@@ -67,9 +67,11 @@ in
     };
     /* theme = "Tokyo Night Storm"; */
     keybindings = {
+      "cmd+t" = "new_tab_with_cwd";
       "cmd+l" = "select_tab";
       "ctrl+q" = "goto_tab 0";
-      "cmd+shift+enter" = "new_window_with_cwd";
+      "cmd+enter" = "new_window_with_cwd";
+      "cmd+shift+enter" = "new_window";
       "ctrl+shift+1" = "goto_tab 1";
       "ctrl+shift+2" = "goto_tab 2";
       "ctrl+shift+3" = "goto_tab 3";
@@ -82,8 +84,15 @@ in
       map f1 set_tab_title
       '';
     settings = {
-      background_opacity = "0.8";
+      background_opacity = "0.85";
       hide_window_decorations = "yes";
+      tab_title_template        =  "{index} {title}";
+      active_tab_title_template =  "{index} {title}";
+      active_tab_font_style     =  "normal";
+      tab_bar_margin_height     =  "7.5 7.5";
+      tab_bar_style             =  "powerline";
+      tab_bar_align             =  "left";
+      tab_bar_min_tabs          =  1;
     };
   };
 
