@@ -97,6 +97,12 @@ in
     };
   };
 
+  /* PROMPT */
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs = {
     k9s.enable = true;
     direnv.enable = true;
