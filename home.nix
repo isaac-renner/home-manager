@@ -17,7 +17,7 @@ in
     /* custom-dsv */
     fullpath
     /* nixpkgs */
-    yarn # needed for js dev tmp 
+    yarn # needed for js dev - tmp 
     jq # bash json parsing
     convco # Common commit
     comma # use programs using nix-index without installing
