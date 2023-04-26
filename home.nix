@@ -122,7 +122,6 @@ in
       };
     };
  
-    k9s.enable = true;
     direnv.enable = true;
     nix-index.enable = true;
     bat.enable = true;
