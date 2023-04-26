@@ -59,6 +59,8 @@ in
         autoload -U history-beginning-search-forward
         bindkey "^[[A" history-beginning-search-backward
         bindkey "^[[B" history-beginning-search-forward
+
+        alias commit="convco commit -i"
         '';
       envExtra = ''
         alias ailo-tools="nix run git+ssh://git@github.com/ailohq/ailo-tools.git"
