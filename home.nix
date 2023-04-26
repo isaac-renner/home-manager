@@ -17,14 +17,17 @@ in
     /* custom-dsv */
     fullpath
     /* nixpkgs */
-    comma
-    kubectl
-    aws-vault
-    awscli2
-    ripgrep
-    fzf
-    docker
-    gum
+    yarn # needed for js dev tmp 
+    jq # bash json parsing
+    convco # Common commit
+    comma # use programs using nix-index without installing
+    kubectl # pain
+    aws-vault # more pain
+    awscli2 # endless suffering
+    ripgrep # better grep
+    fzf # fuzzy finder
+    docker # source of most of my pain
+    gum # prettier scripts
   ];
 
   programs = {
