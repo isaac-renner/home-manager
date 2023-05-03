@@ -28,6 +28,7 @@ in
     fzf # fuzzy finder
     docker # source of most of my pain
     gum # prettier scripts
+    zld #better linker
   ];
 
   programs = {
@@ -42,6 +43,19 @@ in
 
     /* GIT */
     git = {
+      enable = true;
+      delta = {
+        enable = true;
+        options = {
+          navigate = true;
+          side-by-side = true;
+          line-numbers = true;
+          theme = "discord";
+        };
+      };
+    };
+
+    lazygit = {
       enable = true;
     };
 
@@ -63,7 +77,7 @@ in
         bindkey "^[[A" history-beginning-search-backward
         bindkey "^[[B" history-beginning-search-forward
 
-        alias commit="convco commit -i"
+        alias commit="convco commit -i -- --no-edit"
         '';
       envExtra = ''
         alias ailo-tools="nix run git+ssh://git@github.com/ailohq/ailo-tools.git"
@@ -76,8 +90,8 @@ in
     kitty = {
       enable = true;
       font = {
-        name = "Fantasque Sans Mono";
-        size = 38;
+        name = "FantasqueSansMono Nerd Font Mono";
+        size = 48;
       };
       /* theme = "Tokyo Night Storm"; */
       keybindings = {
