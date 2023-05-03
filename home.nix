@@ -145,6 +145,11 @@ in
     nix-index.enable = true;
     bat.enable = true;
 
+    /* UNCOMMENT THIS TO BE LESS PRODUCTIVE */
+    /* programs.vscode = {
+      enable = true;
+      package = pkgs.vscode.fhs;
+    }; */
   };
 
   home.sessionVariables = {
