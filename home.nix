@@ -5,6 +5,16 @@ let
   mkdir -p $out/bin $out/share
   cp ${pkgs.coreutils}/bin/realpath $out/bin/realpath 
   '';
+  fonts = { 
+    FantasqueSansMono = {
+        name = "FantasqueSansMono Nerd Font Mono";
+        size = 40;
+    };
+    CaskaydiaNerdFontMono = {
+        name = "CaskaydiaCove Nerd Font Mono";
+        size = 40;
+    };
+  };
 in
 {
   home.username = "isaacrenner";
@@ -70,29 +80,31 @@ in
       initExtra = ''
         source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5' 
-        source ~/.config/zsh/.zshrc
         
         autoload -U history-beginning-search-backward
         autoload -U history-beginning-search-forward
         bindkey "^[[A" history-beginning-search-backward
         bindkey "^[[B" history-beginning-search-forward
+        alias bk=", bk browse"
 
         alias commit="convco commit -i -- --no-edit"
+        source ~/.config/zsh/.zshrc
         '';
       envExtra = ''
         alias ailo-tools="nix run git+ssh://git@github.com/ailohq/ailo-tools.git"
+        alias gt="nix run git+ssh://git@github.com/isaac-renner/git-tools.git"
         change-profile() { eval $(ailo-tools shell_change_profile) ; }
-      change-namespace() { eval $(ailo-tools shell_change_namespace) ; }
+        change-namespace() { eval $(ailo-tools shell_change_namespace) ; }
+
+        # source nix-darwin
+        . /etc/static/bashrc
       ''; 
     };
 
     /* TERM */
     kitty = {
       enable = true;
-      font = {
-        name = "FantasqueSansMono Nerd Font Mono";
-        size = 48;
-      };
+      font = fonts.CaskaydiaNerdFontMono;
       /* theme = "Tokyo Night Storm"; */
       keybindings = {
         "cmd+t" = "new_tab_with_cwd";
@@ -112,8 +124,8 @@ in
         map f1 set_tab_title
         '';
       settings = {
-        background_opacity = "0.85";
-        hide_window_decorations = "yes";
+        background_opacity        = "0.85";
+        hide_window_decorations   = "yes";
         tab_title_template        =  "{index} {title}";
         active_tab_title_template =  "{index} {title}";
         active_tab_font_style     =  "normal";
@@ -121,6 +133,7 @@ in
         tab_bar_style             =  "powerline";
         tab_bar_align             =  "left";
         tab_bar_min_tabs          =  1;
+        enabled_layouts           =  "fat,splits,stack";
       };
     };
 
@@ -146,14 +159,14 @@ in
     bat.enable = true;
 
     /* UNCOMMENT THIS TO BE LESS PRODUCTIVE */
-    /* programs.vscode = {
+    /*vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
     }; */
   };
 
   home.sessionVariables = {
-    /* EDITOR = "nvim"; */
+     EDITOR = "nvim"; 
   };
 
   # Let Home Manager install and manage itself.
