@@ -54,6 +54,15 @@ in
     /* GIT */
     git = {
       enable = true;
+      aliases = {
+        s = "switch";
+        as = "add src";
+        aa = "add .";
+        st = "status -sb";
+        ll = "log --oneline";
+        last = "log -1 head --stat";
+        d = "difftool -t vimdiff -y";
+      };
       delta = {
         enable = true;
         options = {
