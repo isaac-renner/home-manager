@@ -98,6 +98,9 @@ in
 
         alias commit="convco commit -i -- --no-edit"
         source ~/.config/zsh/.zshrc
+        precmd () {
+          print -Pn "\e]0;$(basename -s .git `git config --get remote.origin.url` 2> /dev/null || cwd)/$(git branch --show-current 2> /dev/null)\a"
+        }
         '';
       envExtra = ''
         alias ailo-tools="nix run git+ssh://git@github.com/ailohq/ailo-tools.git"
@@ -107,6 +110,7 @@ in
 
         # source nix-darwin
         . /etc/static/bashrc
+        export EDITOR="nvim"
       ''; 
     };
 
